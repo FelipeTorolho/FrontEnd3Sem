@@ -4,79 +4,78 @@
     src: url(./fonts/Inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-image: linear-gradient(to right bottom, #18a2c9, #72c3bd);
     background-repeat: no-repeat;
-   
 }
 
 /* Desktop First */
-.container{
+.container {
     margin: auto;
     max-width: 1200px;
     width: 100%;
 }
 
-.container--flex-column{
+.container--flex-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.header{
+.header {
     padding: 10px 0;
     /* height: 80px; */
 }
 
-.header__logo{
+.header__logo {
     width: 100px;
 }
 
-.header__title{
+.header__title {
     font-family: Inconsolata;
     color: #ded27c;
 }
 
-.header__text{
+.header__text {
     color: white;
 }
 
-.contact-form{
+.contact-form {
     padding: 20px;
 }
 
-.contact-form__linha{
+.contact-form__linha {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.contact-form__col-a{
-     width: 10%;
-     display: flex;
-     align-items: center;
+.contact-form__col-a {
+    width: 150px;
+    display: flex;
+    align-items: center;
 }
 
-.contact-form__col-b{
-     display: flex;
-     justify-content: space-between;
-     width: 90%;
+.contact-form__col-b {
+    display: flex;
+    gap: 15px;
+    width: 100%;
 }
 
-.contact-form__label{
+.contact-form__label {
     font-family: 'Courier New', Courier, monospace;
     color: white;
     font-weight: 600;
 }
 
-.contact-form__input{
+.contact-form__input {
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
@@ -85,46 +84,46 @@ body{
     transition: background-color 0.4s, color 0.4s, border 0.4s;
 }
 
-.contact-form__input:focus{
+.contact-form__input:focus {
     background-color: #72c3bd;
     color: white;
     border: 1px solid white;
 }
 
 /* modificadores*/
-.contact-form__input--metade{
+.contact-form__input--metade {
     width: 48%;
     height: 35px;
 }
 
-.contact-form__input--inteiro{
-     width: 100%;
-     height: 35px;
+.contact-form__input--inteiro {
+    width: 99%;
+    height: 35px;
 }
 
-.contact-form__input--terco{
-     width: 32%;
-     height: 35px;
+.contact-form__input--terco {
+    width: 32%;
+    height: 35px;
 }
 
-.contact-form__input--quarto{
-     width: 24%;
-     height: 35px;
+.contact-form__input--quarto {
+    width: 24%;
+    height: 35px;
 }
 
-.contact-form__input--anotacoes{
-     width: 100%;
-     height: 150px;
-     color: #18a2c9;
-     padding: 5px 10px;
-     border: none;
+.contact-form__input--anotacoes {
+    width: 99%;
+    height: 150px;
+    color: #18a2c9;
+    padding: 5px 10px;
+    border: none;
 }
 
-.container-form__col-a--anotacoes{
+.container-form__col-a--anotacoes {
     align-items: flex-start;
 }
 
-.button-container{
+.button-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,7 +137,7 @@ body{
     background-color: transparent;
     color: white;
     border: 1px solid white;
-    width: 450px;   
+    width: 450px;
     height: 55px;
     padding: 10px 20px;
     border-radius: 3px;
@@ -153,11 +152,69 @@ body{
 }
 
 /* Breakpoints - tablets*/
-@media screen and (max-width: 991px){
-    
+@media screen and (max-width: 991px) {
+    body {
+        height: 100vh;
+    }
+
+    .container {
+        max-width: 750px;
+    }
+
+    /*aumentar o tamanho do logotipo*/
+    .header__logo {
+        width: 140px;
+    }
+
+    /*aumentar o texto do paragrafo*/
+    .header__text {
+        font-size: 25px;
+        margin-top: 20px;
+    }
+
+    /*diminuir o tamanho dos lables tables*/
+    .contact-form__label {
+        font-size: 13px;
+    }
 }
 
 /* Breakpoints - smartphones*/
-@media screen and (max-width: 767px){
-    
+@media screen and (max-width: 767px) {
+    /*deixar todos os campos com tamanho de 100% (--inteiro), ou seja, um campo por linha*/
+
+    body {
+        height: auto;
+    }
+
+    .header__logo {
+        width: 100px;
+    }
+
+    .header__text {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .contact-form__col-a {
+        display: none;
+    }
+
+    .contact-form__col-b {
+        flex-wrap: wrap;
+    }
+
+    .contact-form__linha {
+        justify-content: center;
+    }
+
+    .contact-form__button--medate:first-of-type {
+        margin-bottom: 20px;
+    }
+
+    /*alterar os modificadores para 100% no mobile*/
+    .contact-form__input--metade,
+    .contact-form__input--terco,
+    .contact-form__input--quarto {
+        width: 100%;
+    }
 }
