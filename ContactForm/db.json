@@ -1,0 +1,110 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contacts": [
+    {
+      "nome": "Eduardo",
+      "sobrenome": "Costa",
+      "email": "eduardo.costa@example.com",
+      "id": "kSfoCMsbcHI"
+    },
+    {
+      "nome": "Felipe",
+      "sobrenome": "Torolho",
+      "email": "felipe.torolho@example.com",
+      "id": "q8H9NMWxkOI"
+    },
+    {
+      "nome": "Felipe",
+      "sobrenome": "Gomes",
+      "email": "felipe.gomes@example.com",
+      "id": "pxcqyxBL2u8"
+    },
+    {
+      "nome": "Felipe",
+      "sobrenome": "salgado",
+      "email": "felipe.salgado@example.com",
+      "id": "bcOp2sTxp9I"
+    },
+    {
+      "nome": "Arthur",
+      "sobrenome": "Batista",
+      "email": "arthur.batista@example.com",
+      "id": "ZVMoXElf2eI"
+    },
+    {
+      "nome": "Rafael",
+      "sobrenome": "Moura",
+      "email": "rafael.moura@example.com",
+      "id": "xGCSp0Ct_3Y"
+    },
+    {
+      "nome": "Felipe",
+      "sobrenome": "Torolho",
+      "id": "WNrI1R5hLMM"
+    },
+    {
+      "nome": "Felipe",
+      "sobrenome": "Torolho",
+      "id": "B0yZRIO9OEc"
+    }
+  ],
+  "produto": [
+    {
+      "nome": "maça",
+      "preço": "R$ 8,00",
+      "quantidade": "10",
+      "id": "cr4geI4jgA8"
+    },
+    {
+      "nome": "banana",
+      "preço": "R$ 11,00",
+      "quantidade": "20",
+      "id": "F9zllkauEcU"
+    },
+    {
+      "nome": "uva",
+      "preço": "R$ 16,00",
+      "quantidade": "18",
+      "id": "RcbLZ4QqyuY"
+    },
+    {
+      "nome": "melao",
+      "preço": "R$ 15,00",
+      "quantidade": "18",
+      "id": "UWrvOuOymgE"
+    },
+    {
+      "nome": "abacaxi",
+      "preço": "R$ 20,00",
+      "quantidade": "11",
+      "id": "111-37UZWzE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

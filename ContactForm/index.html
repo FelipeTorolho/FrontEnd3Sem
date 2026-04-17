@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Form</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -70,7 +70,7 @@
 
                     <div class="contact-form__col-b">
                         <input class="contact-form__input contact-form__input--quarto " name="cep" id="cep"
-                            placeholder="cep" type="text">
+                            onblur="buscarEndereco(this.value)" placeholder="cep" type="text">
 
 
                         <input class="contact-form__input contact-form__input--metade" name="rua" id="rua"
@@ -132,7 +132,7 @@
 
                     <div class="contact-form__col-b button-container">
                         <button class="contact-form__button contact-form__button--medate" type="button"
-                            onclick="minhaFuncao();">Cadastrar</button>
+                            onclick="validarFormulario();">Cadastrar</button>
                         <button class="contact-form__button contact-form__button--medate" type="reset">Limpar</button>
                     </div>
 
@@ -141,136 +141,7 @@
         </div>
     </main>
 
-    <script>
-        function minhaFuncao() {
-            let nome = document.getElementById("nome").value;// pegando o valor do campo com o id nome
-            let sobrenome = document.getElementById("sobrenome").value;// pegando o valor do campo com o id sobrenome
-            let email = document.getElementById("email").value;// pegando o valor do campo com o id email
-            let telefone = document.getElementById("pais").value;// pegando o valor do campo com o id telefone
-            let ddd = document.getElementById("ddd").value;// pegando o valor do campo com o id telefone
-            let numero = document.getElementById("telefone").value;// pegando o valor do campo com o id telefone
-            let cep = document.getElementById("cep").value;// pegando o valor do campo com o id cep
-            let rua = document.getElementById("rua").value;// pegando o valor do campo com o id rua
-            let numeroEndereco = document.getElementById("numero").value;// pegando o valor do campo com o id numeroEndereco
-            let apartamento = document.getElementById("apartamento").value;// pegando o valor do campo com o id apartamento
-            let bairro = document.getElementById("bairro").value;// pegando o valor do  campo com o id bairro
-            let cidade = document.getElementById("cidade").value;// pegando o valor do  campo com o id cidade
-            let estado = document.getElementById("estado").value;// pegando o valor do  campo com o id estado
-            let anotacoes = document.getElementById("anotacoes").value;// pegando o valor do  campo com o id anotacoes
-
-
-            if (nome == 0) {//se o nome estiver vazio
-                formError("nome");
-            }
-            else {
-                reiniciaBorda("nome");
-            }
-
-            if (sobrenome == 0) {//se o sobrenome estiver vazio
-                formError("sobrenome");
-            }
-            else {
-                reiniciaBorda("sobrenome");
-            }
-
-            if (email == 0) {//se o email estiver vazio
-                formError("email");
-            }
-            else {
-                reiniciaBorda("email");
-            }
-
-            if (telefone == 0) {//se o telefone estiver vazio
-                formError("pais");
-            }
-            else {
-                reiniciaBorda("pais");
-            }
-
-            if (ddd == 0) {//se o ddd estiver vazio
-                formError("ddd");
-            }
-            else {
-                reiniciaBorda("ddd");
-            }
-
-            if (numero == 0) {//se o numero estiver vazio
-                formError("telefone");
-            }
-            else {
-                reiniciaBorda("telefone");
-            }
-
-            if (cep == 0) {//se o cep estiver vazio
-                formError("cep");
-            }
-            else {
-                reiniciaBorda("cep");
-            }
-
-            if (rua == 0) {//se o rua estiver vazio
-                formError("rua");
-            }
-            else {
-                reiniciaBorda("rua");
-            }
-
-            if (numeroEndereco == 0) {//se o numeroEndereco estiver vazio
-                formError("numero");
-            }
-            else {
-                reiniciaBorda("numero");
-            }
-
-            if (apartamento == 0) {//se o apartamento estiver vazio
-                formError("apartamento");
-            }
-            else {
-                reiniciaBorda("apartamento");
-            }
-
-            if (bairro == 0) {//se o bairro estiver vazio
-                formError("bairro");
-            }
-            else {
-                reiniciaBorda("bairro");
-            }
-
-            if (cidade == 0) {//se o cidade estiver vazio
-                formError("cidade");
-            }
-            else {
-                reiniciaBorda("cidade");
-            }
-
-            if (estado == 0) {//se o estado estiver vazio
-                formError("estado");
-            }
-            else {
-                reiniciaBorda("estado");
-            }
-
-            if (anotacoes == 0) {//se o anotacoes estiver vazio
-                formError("anotacoes");
-            }
-            else {
-                reiniciaBorda("anotacoes");
-            }
-            
-
-            // função que pinta a borda do campo que falta preencher
-            function formError(fildId) {
-                document.getElementById(fildId).style.border = "1px solid red";
-            }
-
-            // função que pinta a borda do campo que falta preencher
-            function reiniciaBorda(fildId) {
-                document.getElementById(fildId).style.border = "none";
-            }
-
-        }
-    </script>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
