@@ -1,0 +1,81 @@
+{
+  "usuarios": [
+    {
+      "nome": "Matehus Becker",
+      "idade": 17,
+      "id": "o3jUsID1XGY"
+    },
+    {
+      "nome": "Felipe Torolho",
+      "idade": 16,
+      "id": "b4yDnB5OVIM"
+    }
+  ],
+  "imc": [
+    {
+      "nome": "Matheus",
+      "altura": 1.63,
+      "peso": 55,
+      "imc": 20.70081674131507,
+      "textoImc": "Peso normal",
+      "id": "cCPH_hF4ZR0"
+    },
+    {
+      "nome": "Kaua",
+      "altura": 1.74,
+      "peso": 62,
+      "imc": 20.478266613819528,
+      "textoImc": "Peso normal",
+      "id": "LCQ5FkkTjaU"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "imc": 30.477966223242138,
+      "textoImc": "Obesidade grau 1",
+      "id": "gJCvMvJgZlg"
+    },
+    {
+      "nome": "João",
+      "altura": 1.78,
+      "peso": 88,
+      "imc": 27.77427092538821,
+      "textoImc": "Sobrepeso",
+      "id": "lwAQt5Q078k"
+    },
+    {
+      "nome": "Felipe",
+      "altura": 1.85,
+      "peso": 67,
+      "imc": 19.576333089846603,
+      "textoImc": "Peso normal",
+      "id": "fJsuImzVR9g"
+    },
+    {
+      "nome": "Rafael",
+      "altura": 1.79,
+      "peso": 62,
+      "imc": 19.350207546580943,
+      "textoImc": "Peso normal",
+      "id": "z_r9EbvRNC0"
+    },
+    {
+      "nome": "Arthur",
+      "altura": 1.8,
+      "peso": 80,
+      "imc": 24.691358024691358,
+      "textoImc": "Peso normal",
+      "id": "NUgbOn3tdwI"
+    },
+    {
+      "nome": "Gustavo",
+      "altura": 1.75,
+      "peso": 55,
+      "imc": 17.959183673469386,
+      "textoImc": "Magreza leve",
+      "id": "3UDlM7GILcM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="titulo">Bem Vindo</h1>
+
+    <p>Hello DOM JS</p>
+    <button onclick="saudacao();">Click aqui</button>
+    <button ondblclick="mouseClicadoDuasVezes();">Click 2 vezes</button>
+    <button onmousedown="saudacao();">Click aqui</button>
+    <button onmouseup="saudacao();">Click aqui</button>
+    <button onmouseover="saudacaoLegal();">Passe o mouse</button>
+
+    <script>
+        alert(`Titulo: ${document.getElementById("titulo").textContent}`);
+
+        //javaScript é uma linguagem Case Sensetive
+        //por convenção, utilizamos o padrão camelCase
+        // - Maiúsculo a partir da segunda palavra
+        function saudacao() {
+            alert("Hello, World!");
+        }
+        function saudacaoLegal() {
+            alert("Olá, amigo!");
+        }
+        function mouseClicadoDuasVezes() {
+            alert("Olá, amigo!");
+        }
+    </script>
+</body>
+</html>
