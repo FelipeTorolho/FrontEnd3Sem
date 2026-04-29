@@ -75,6 +75,23 @@
       "imc": 17.959183673469386,
       "textoImc": "Magreza leve",
       "id": "3UDlM7GILcM"
+    },
+    {
+      "nome": "Lucas",
+      "altura": 1.5,
+      "peso": 46,
+      "imc": 20.444444444444443,
+      "textoImc": "Peso normal",
+      "id": "GCGb7gUs_wM"
+    }
+  ],
+  "calculadora": [
+    {
+      "n1": 12,
+      "n2": 12,
+      "operacao": "soma",
+      "resultado": "24.00",
+      "id": "Q9XQ6WwfHCk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

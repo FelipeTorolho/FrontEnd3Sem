@@ -22,33 +22,26 @@ function calcular() {
     const objIMC = {
         nome: nome,
         altura: altura,
-        peso: peso,        
+        peso: peso,
         imc: IMC,
         textoImc: textoImc
     };
 
     const retorno = cadastrarNaAPI(objIMC); //retorna true ou false
     if (retorno) {
-        const linhaTabela =
-            `<tr>
-        <td>${nome}</td>
-        <td>${altura}</td>
-        <td>${peso}</td>
-        <td>${IMC.toFixed(2)}</td>
-        <td>${textoImc}</td>
-    </tr>`;
+       buscarIMCs(); 
 
-    document.getElementById("cadastro").innerHTML += linhaTabela;
+        document.getElementById("cadastro").innerHTML += linhaTabela;
 
-    //limpar os campos do formulario
-    document.getElementById("nome").value = "";
-    document.getElementById("altura").value = "";
-    document.getElementById("peso").value = "";
+        //limpar os campos do formulario
+        document.getElementById("nome").value = "";
+        document.getElementById("altura").value = "";
+        document.getElementById("peso").value = "";
 
-    alert(`${nome} foi cadastrado no banco:
+        alert(`${nome} foi cadastrado no banco:
             Nome: ${nome}
             IMC: ${IMC}
-            Situação: ${textoImc}`);    
+            Situação: ${textoImc}`);
     } else {
         alert("Não foi possível cadastrar");
     }
@@ -109,11 +102,17 @@ function gerarTextoImc(IMC) {
 *fazer um get
 *rodar um for com a lista que o get retornou
 *inserir as linhas da tabela com os dados html
-*/ 
+*/
 async function buscarIMCs() {
     try {
         const retorno = await fetch("http://localhost:3000/imc");
         const dadosRetornados = await retorno.json();
+
+        // Ordena por nome em ordem crescente
+        dadosRetornados.sort((a, b) => {
+            return a.nome.localeCompare(b.nome);
+        });
+
 
         console.log(dadosRetornados); //dados do cadastro
 
@@ -128,7 +127,7 @@ async function buscarIMCs() {
             <td>${dadosRetornados[i].peso}</td>
             <td>${dadosRetornados[i].imc.toFixed(2)}</td>
             <td>${dadosRetornados[i].textoImc}</td>
-        </tr>`; 
+        </tr>`;
         }
 
         tabela.innerHTML = template;
