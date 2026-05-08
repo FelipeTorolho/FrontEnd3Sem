@@ -1,0 +1,18 @@
+/*perfil do usuario*/
+
+.card-perfil{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    /* border: 1px solid white; */
+}
+
+.card-perfil__image{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid white;
+}

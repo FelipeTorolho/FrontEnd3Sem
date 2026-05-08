@@ -1,0 +1,10 @@
+p{
+    width: 30%;
+    height: 60px;
+    color: white;
+    background-color: black;
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

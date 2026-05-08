@@ -92,6 +92,13 @@
       "operacao": "soma",
       "resultado": "24.00",
       "id": "Q9XQ6WwfHCk"
+    },
+    {
+      "n1": 10,
+      "n2": 10,
+      "operacao": "multiplicacao",
+      "resultado": "100.00",
+      "id": "ZpyeH8C7hC4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
