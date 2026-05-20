@@ -39,6 +39,14 @@
       "descricao": "Notebook Gamer.",
       "quantidade": 10,
       "imagem": ""
+    },
+    {
+      "nome": "Notebook",
+      "preco": 6767.67,
+      "descricao": "Notebook Gamer.",
+      "quantidade": 67,
+      "imagem": "image.jpg",
+      "id": "UcQZFoGqkKE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

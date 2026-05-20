@@ -1,9 +1,12 @@
 import "./produto.css"
 import { useState, useEffect } from "react"
 import img from '../../assets/image.jpg'
+import axios from "axios"
+import api from "../../services/services"
 
 export default function Produto() {
     // states e variáveis
+    const [id, setId] = useState(0)// usado no editar
     const [nome, setNome] = useState("")
     const [preco, setPreco] = useState(0)
     const [descricao, setDescricao] = useState("")
@@ -40,20 +43,14 @@ export default function Produto() {
         //cadastrar na api
         //gerar o fetch para faer o post
         try {
-            const retornoAPI = await fetch("http://localhost:3000/produtos", {
-                method: "POST",
-                body: JSON.stringify(objCadastro),
-                headers: {
-                    "Content-Type": "application/json; charset=UTF-8"
-                },
-            })
-
+            const retornoAPI = await api.post("http://localhost:3000/produtos", objCadastro);
             // validando o retorno da API
             console.log(retornoAPI);
             if (retornoAPI.status == 201) {
-                const dadosCadastrados = retornoAPI.json()
+                const dadosCadastrados = await retornoAPI.data;
                 setArrProdutos([...arrProdutos, dadosCadastrados])
                 alert("Produto cadastrado com sucesso")
+
                 limparFormulario() // limpar o formulário
             } else {
                 alert("Problema inesperado")
@@ -68,6 +65,7 @@ export default function Produto() {
 
     // Função que reinicia os states pra limpar o formulário
     function limparFormulario() {
+        setId(0)
         setNome("")
         setDescricao("")
         setQuantidade(0)
@@ -82,9 +80,9 @@ export default function Produto() {
 
     async function getProdutos() {
         try {
-            const retornoAPI = await fetch("http://localhost:3000/produtos")
-            const dados = await retornoAPI.json()
-            console.log(dados);
+            const retornoAPI = await api.get("/produtos")
+            const dados = await retornoAPI.data
+            // console.log(dados);
             setArrProdutos(dados)
 
         } catch (error) {
@@ -96,10 +94,13 @@ export default function Produto() {
     }
 
     async function deletar(id) {
+
+        if(!confirm("Você quer realmente apagar o produto")){
+            return false;
+        }
+
         try {
-            const retornoAPI = await fetch(`http://localhost:3000/produtos/${id}`, {
-                method: "DELETE"
-            })
+            const retornoAPI = await api.delete(`/produtos/${id}`);
 
             if (retornoAPI.status == 200 && retornoAPI.statusText == "OK") {
                 alert("Produto deletado com sucesso")
@@ -118,38 +119,45 @@ export default function Produto() {
     }
 
     async function editarProduto(e) {
-        e.preventDefault()
-        alert("Função Editar Chamada")
+        e.preventDefault()//Evita de postar o formulário
 
-        // fazer o put pra editar os dados
-       try {
-        const objEditado = {
+        // validar o formulario
+        if (
+            nome.trim().length == 0 || descricao.trim().length == 0 ||
+            isNaN(preco) || preco <= 0 || isNaN(quantidade) || quantidade <= 0
+        ) {
+            alert("Preencha os campos corretamente!")
+            return false;
+        }
+
+        //gerar um objeto que vai pra api 
+        const objCadastro = {
             nome,
             preco,
-            descricao,
-            quantidade
+            descricao: descricao,
+            quantidade: quantidade,
+            imagem: "image.jpg"
         }
 
-        const retornoAPI = await fetch(`http://localhost:3000/produtos/${idProduto}`, {
-            method: "PUT",
-            body: JSON.stringify(objEditado),
-            headers: {
-                "Content-Type": "application/json; charset=UTF-8"
-            },
-        })
+        // chamar a api
+        try {
+            const retornoAPI = await api.put(`http://localhost:3000/produtos/${id}`, objCadastro);
 
-        if (retornoAPI.status == 200) {
-            alert("Produto editado com sucesso")
-
-            
-        } else {
+            if (retornoAPI.status == 200) {
+                alert("Produto alterado com sucesso")
+                getProdutos()
+                limparFormulario()
+                setEditar(false)
+            } else {
+                alert("Erro ao editar")
+            }
+        } catch (error) {
             alert("Erro ao editar o produto")
+            console.log(error);
+
         }
 
-       } catch (error) {
-        alert("Erro ao editar o produto")
-        console.log(error);
-       }
+
         // chamar a função de getDados novamente para mostrar os dados atualizados
     }
 
@@ -178,6 +186,7 @@ export default function Produto() {
                     className="btn--cadastro"
                     onClick={() => {
                         setEditar(false); // faz esconder o botão
+                        setId(0)
                         limparFormulario()// reseta os states dos inputs
                     }}
 
@@ -206,6 +215,7 @@ export default function Produto() {
                             // mostra os dados no form pra edição
 
                             setEditar(true)
+                            setId(prod.id)
                             setNome(prod.nome)
                             setDescricao(prod.descricao)
                             setPreco(prod.preco)
